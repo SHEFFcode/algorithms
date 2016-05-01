@@ -19,12 +19,13 @@ function mergeSort (arr) { // will accept an unsorted array
 				result.push(arr2[p2]); // push the arr2 value into the merged result array
 				p2++; // increase the p2 pointer
 			}
+			if (p1 === arr1.length) { // we ran out of elements in array1
+				result = result.concat(arr2.slice(p2)); // we are concacting arr2 from p2 onwards
+			} else if (p2 === arr2.length) { // we ran out of elelemtns in array2
+				result = result.concat(arr1.slice(p1)); // we are concacting arr1 from p1 onwards
+			}
 		}
-		if (p1 === arr1.length) { // we ran out of elements in array1
-			result = result.concat(arr2.slice(p2)); // we are concacting arr2 from p2 onwards
-		} else if (p2 === arr2.length) { // we ran out of elelemtns in array2
-			result = result.concat(arr1.slice(p1)); // we are concacting arr1 from p1 onwards
-		}
+		
 		return result; // returns the sorted merged array
 	} 
 	/*--------------------- end of joinArrays function definition ---------------------------*/
